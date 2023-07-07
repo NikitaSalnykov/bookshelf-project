@@ -64,7 +64,7 @@ firebase.auth().signOut()
     })
     .catch((error) => {
       
-    Notiflix.Notify.success('SignOut Error',error);
+    Notiflix.Notify.failure('SignOut Error',error);
     });
     }
 
@@ -73,23 +73,23 @@ firebase.auth().signOut()
     return firebase.auth().onAuthStateChanged(callback);
     }
     
-
+//Add book to list
     firebaseAddBookToList(userID, bookID)
     {
   firebase.database().ref('users/' + userID + '/shoppingList').push({
   bookID: bookID,
 })
-.then(() => {
-  console.log('Дані успішно додано до бази даних');
+      .then(() => {
+    Notiflix.Notify.success('Book was successfully added');
 })
-.catch((error) => {
-  console.error('Помилка при записі даних:', error);
+      .catch((error) => {
+    Notiflix.Notify.failure('Error. Book was not added.',error);
 });
         
     }
 
 
-
+// remove book from list
     firebaseRemoveBookFromList(userID, bookID)
     {
         const shoppingListRef = firebase.database().ref('users/' + userID + '/shoppingList');
@@ -101,22 +101,23 @@ firebase.auth().signOut()
       if (snapshot.exists()) {
         const bookKeys = Object.keys(snapshot.val());
 
-        // Видалення кожної книжки з бази даних за ключем
+        
         bookKeys.forEach((key) => {
           shoppingListRef.child(key).remove();
         });
-
-        console.log(`Книжка з bookID ${bookID} видалена з корзини.`);
+        Notiflix.Notify.success('Book was removed.');
       } else {
-        console.log(`Книжка з bookID ${bookID} не знайдена в корзині.`);
+          Notiflix.Notify.failure('Book was not found.');
       }
     })
-    .catch((error) => {
-      console.error('Помилка при видаленні книжки з корзини:', error);
+            .catch((error) => {
+        Notiflix.Notify.failure('Error during removing Book:', error);
+      
     });
         
     }
 
+    // clean all ShoppingList
     firebaseClearShoppingList(userID)
     
     {
@@ -124,13 +125,14 @@ firebase.auth().signOut()
     shoppingListRef
     .remove()
     .then(() => {
-      console.log('Корзину очищено.');
+     Notiflix.Notify.success('Shopping List was cleaned.');
     })
-    .catch((error) => {
-      console.error('Помилка при очищенні корзини:', error);
+        .catch((error) => {
+        Notiflix.Notify.failure('Error during cleaning Shopping List:', error);
+      
     });
     }
-
+// getting the  list of book id 
     firebaseSelectBooksFromList(userID)
     {
 var shoppingListRef = firebase.database().ref('users/' + userID + '/shoppingList');
@@ -147,7 +149,7 @@ var shoppingListRef = firebase.database().ref('users/' + userID + '/shoppingList
       return false;
     }
   }).catch(function(error) {
-    console.error('Помилка при отриманні списку книжок з корзини:', error);
+    console.error('Error getting the list :', error);
     return false;
   });
         

@@ -4,7 +4,7 @@ import Firebase from './firebase.js';
 const email = 'taras_678@ukr.net';
 const password = 'Taras_123432atdgbdd';
 const userName = "Vasia";
-let userIds = null;
+
 const firebaseInstance = new Firebase();
 
 //firebaseInstance.firebaseSignUp(email, password, userName);
@@ -13,7 +13,7 @@ const firebaseInstance = new Firebase();
 
 //firebaseInstance.firebaseSignIn(email, password);
 
-firebaseInstance.onAuthStateChanged(function(user) {
+/*firebaseInstance.onAuthStateChanged(function(user) {
     if (user) {
         const userId = user.uid;
         console.log('User is authenticated', userId);
@@ -34,11 +34,12 @@ firebaseInstance.onAuthStateChanged(function(user) {
  });
        return userId;
    } else {
-     // Користувач неавторизований
+     
        console.log('User is not authenticated');
        return false;
    }
     
-});
+    
+);}*/
 
 //console.log('User is authenticated',userIds);
