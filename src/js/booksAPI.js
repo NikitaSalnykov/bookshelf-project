@@ -25,6 +25,7 @@ async getBookByCategory(categoryList) {
 		throw new Error('Not found')
 	}
 	return resp;
+	
 };
 
 async getBestSellers(topBooks) {
