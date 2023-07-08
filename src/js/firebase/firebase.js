@@ -34,27 +34,42 @@ class Firebase {
       });
     }
     //SingIn Function
-    firebaseSignIn(email, password) {
-firebase.auth().signInWithEmailAndPassword(email, password)
+firebaseSignIn(email, password) {
+  return firebase.auth().signInWithEmailAndPassword(email, password)
     .then((userCredential) => {
-         const userId = userCredential.user.uid;
-      
-        Notiflix.Notify.success('Sign in Success');
-        return userId;
+      const userId = userCredential.user.uid;
+      return this.getUserData(userId)
+        .then((userData) => {
+          const name = userData && userData.name ? userData.name : 'NONAME';
+            
+            return { userId: userId, name: name };
+        });
     })
-     .catch((error) => {
-      
+    .catch((error) => {
       const errorCode = error.code;
-         const errorMessage = error.message;
-         
+      const errorMessage = error.message;
+
       if (errorCode === 'auth/wrong-password') {
-        Notiflix.Notify.failure('Password is incorect');
+        Notiflix.Notify.failure('Password is incorrect');
       } else {
-        Notiflix.Notify.failure('Sing In Error:', errorMessage);
-         }
-        return false; 
+        Notiflix.Notify.failure('Sign In Error:', errorMessage);
+      }
+
+      return { userId: null, name: 'NONAME' };
+    });
+}
+
+    getUserData(userId) {
+  return firebase.database().ref('users/' + userId).once('value')
+    .then((snapshot) => {
+      if (snapshot.exists()) {
+        return snapshot.val();
+      } else {
+        throw new Error('User data not found');
+      }
     });
     }
+    
 //LogOutFunction
         firebaseLogOut() {
 firebase.auth().signOut()
