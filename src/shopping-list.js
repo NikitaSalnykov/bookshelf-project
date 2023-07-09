@@ -1,3 +1,7 @@
+import './js/support.js'
+
+
+
 import svgBin from './images/sprite.svg';
 import emptyDtTab1x from './images/shop-list/empty-desktop-tablet@1x.png';
 import emptyDtTab2x from './images/shop-list/empty-desktop-tablet@2x.png';
@@ -11,6 +15,8 @@ import bookShopPng from './images/png-icons/shops/bookshop-icon1x.png';
 import bookShopPng2x from './images/png-icons/shops/bookshop-icon2x.png';
 
 import Pagination from 'tui-pagination';
+
+
 
 const cartEl = document.querySelector('.js-shopping-cart');
 const cartListEl = document.querySelector('.js-cart-list');
