@@ -1,4 +1,7 @@
 import './js/bestSellers.js';
+
+import './js/theme.js';
+
 import './js/support.js'
 
 import './js/shopping-list/shoppingList';
