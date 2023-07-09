@@ -23,6 +23,7 @@ button {
 }
 
 .shop-aside {
+  margin-top: 112px;
   display: none;
 
   @media (min-width: var(--desktopMin)) {
@@ -35,6 +36,7 @@ button {
 
 .shopping-list {
   width: 100%;
+  margin-left: 40px;
 }
 .shopping-list__title {
   font-family: 'DM Sans';
@@ -43,7 +45,7 @@ button {
   line-height: 1.19;
   letter-spacing: -0.04em;
 
-  color: var(--main-text-color-light-theme);
+  color: var(--black-color);
 
   @media (min-width: var(--tabletMin)) {
     font-size: 48px;
@@ -172,7 +174,7 @@ button {
     white-space: nowrap;
     text-overflow: ellipsis;
 
-    color: var(--main-text-color-light-theme);
+    color: var(--black-color);
 
     @media (min-width: var(--tabletMin)) {
       max-width: 460px;
@@ -225,7 +227,7 @@ button {
 
     text-overflow: ellipsis;
 
-    color: var(--main-text-color-light-theme);
+    color: var(--black-color);
     @media (min-width: var(--tabletMin)) {
       // width: 100%;
 
@@ -312,7 +314,7 @@ button {
 
     &:hover {
       background-color: var(--hover-dark-theme);
-      fill: var(--main-text-color-light-theme);
+      fill: var(--black-color);
     }
   }
 }
