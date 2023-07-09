@@ -223,10 +223,9 @@ position: fixed;
 }
 
 .modal-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    justify-content: right;
     padding: 16px;
+    display: flex;
 }
 
 .modal-title {
