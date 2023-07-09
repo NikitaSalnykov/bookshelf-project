@@ -1,5 +1,6 @@
 import './js/support.js'
 
+import './js/theme.js';
 
 
 import svgBin from './images/sprite.svg';
