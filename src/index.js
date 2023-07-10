@@ -13,4 +13,4 @@ import './js/sign.js';
 import './js/LogOut.js';
 import './js/API.js';
 import './js/modal.js';
-
+import './js/scrollup.js';
