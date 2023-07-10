@@ -7,9 +7,9 @@ import {
 
 import { cutTitle } from './cutTitles.js';
 
-import image1 from '../images/modal-images/image1.png';
-import image2 from '../images/modal-images/image2.png';
-import image3 from '../images/modal-images/image3.png';
+import logo1 from '../images/modal-images/logo1.png';
+import logo2 from '../images/modal-images/logo2.png';
+import logo3 from '../images/modal-images/logo3.png';
 
 const titleCategories = document.querySelector('.title_categories');
 
@@ -169,7 +169,7 @@ export async function markupModal(bookId) {
       >
         <img
           class="shopping-link-image"
-          src="${image1}"
+          src="${logo1}"
           width="62px"
           height="19px"
           alt="Amazon-link"
@@ -182,7 +182,7 @@ export async function markupModal(bookId) {
       class="shopping-link">
         <img
           class="shopping-link-image"
-          src="${image2}"
+          src="${logo2}"
           width="33px"
           height="32px"
           alt="Applebook-link"
@@ -195,7 +195,7 @@ export async function markupModal(bookId) {
       class="shopping-link">
         <img
           class="shopping-link-image"
-          src="${image3}"
+          src="${logo3}"
           width="38px"
           height="36px"
           alt="Shops-link"
