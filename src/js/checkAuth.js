@@ -36,8 +36,8 @@ if (exists) {
         userNameElement.textContent = userName;
       });
     } else {
-      console.log('User is not authenticated');
-      userNameElement.textContent = ''; // Встановлюємо пустий рядок як значення
+      //console.log('User is not authenticated');
+      userNameElement.textContent = ''; 
       return false;
     }
   });
