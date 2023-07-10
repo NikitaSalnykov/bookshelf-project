@@ -1,6 +1,5 @@
 import './js/checkAuth.js';
 import './js/markup.js';
-import './js/bestSellers.js';
 
 import './js/sidebarCategories.js';
 import './js/support.js'

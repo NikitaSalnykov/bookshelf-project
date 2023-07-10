@@ -66,7 +66,7 @@ async function onSeeMore(e) {
 
 async function createMarkupCategorieItemMore(target) {
   const listBooks = document.querySelectorAll('.list-books');
-  const a = [...listBooks].filter(el => el.dataset.category === target);
+  const categorie = [...listBooks].filter(el => el.dataset.category === target);
   const mark = await markupCategorieItemMore(target);
-  a[0].innerHTML = mark;
+  categorie[0].innerHTML = mark;
 }
