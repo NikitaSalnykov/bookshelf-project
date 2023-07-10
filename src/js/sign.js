@@ -1,5 +1,5 @@
 import Firebase from './firebase/firebase.js';
-import storage from './storage.js';
+import { save } from './storage.js';
 const firebaseInstance = new Firebase();
 const modal = document.getElementById('modal');
 const modalCloseBtn = document.getElementById('modal-close');
@@ -53,7 +53,7 @@ signInForm.addEventListener('submit', function(event) {
     if (userId != null) {
       const userNameElement = document.querySelector('.userName');
       userNameElement.textContent = userName;
-      storage.save('UserData', { userID: userId, userName: userName });
+      save('UserData', { userID: userId, userName: userName });
 
       var userTitle = document.querySelector('.userTitle');
       var singINButton = document.querySelector('.button-sing-in');
