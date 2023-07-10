@@ -14,7 +14,7 @@ import logo3 from '../images/modal-images/logo3.png';
 const titleCategories = document.querySelector('.title_categories');
 
 export function markupUpSideCategories() {
-  const marcup = getCategoryList().then(resp => {
+  const markup = getCategoryList().then(resp => {
     return resp
       .map(
         ({ list_name }) => `
@@ -25,11 +25,11 @@ export function markupUpSideCategories() {
       .join('');
   });
 
-  return marcup;
+  return markup;
 }
 
 export function markupAllCategories() {
-  const marcup = getBestSellers().then(resp => {
+  const markup = getBestSellers().then(resp => {
     return resp
       .map(({ list_name, books }) => {
         const allCategoriesTitlePage = `Best Sellers Books`;
@@ -74,11 +74,11 @@ export function markupAllCategories() {
       .join('');
   });
 
-  return marcup;
+  return markup;
 }
 
 export function markupCategorieItem(target) {
-  const marcup = getCategory(target).then(resp => {
+  const markup = getCategory(target).then(resp => {
     return resp
 
       .map(
@@ -115,12 +115,12 @@ export function markupCategorieItem(target) {
       .join('');
   });
 
-  return marcup;
+  return markup;
 }
 
 // Отрисовка на кнопку See More
 export async function markupCategorieItemMore(target) {
-  const marcup = await getCategory(target).then(resp => {
+  const markup = await getCategory(target).then(resp => {
     return resp
       .map(({ list_name, book_image, title, author, description, _id }) => {
         title = cutTitle(title);
@@ -139,7 +139,7 @@ export async function markupCategorieItemMore(target) {
       })
       .join('');
   });
-  return marcup;
+  return markup;
 }
 
 const modalContent = document.querySelector('.modal-content');
