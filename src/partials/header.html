@@ -2,8 +2,9 @@
   <div class="header-container">
     <a class="header-logo" href="/src/index.html">
       <svg class="header_logo-icon" width="109" height="28">
-        <use href="#"></use>
+        <use href="/src/images/symbol-defs.svg#icon-logo-1"></use>
       </svg>
+      <!-- <p class="header-logo-p">Bookshelf</p> -->
     </a>
     <nav class="header-nav">
       <ul class="header-nav-list">
@@ -16,8 +17,8 @@
           <div class="header-nav-items" id="nav-item-shopping-list">
             <a class="header-nav-link nav-link-shopping" href="/src/shopping-list.html"
               >SHOPPING LIST
-              <svg class="nav-link-icon" width="20" height="20">
-                <use href="#"></use>
+              <svg class="header-nav-link-icon" width="20" height="20">
+                <use href="/src/images/symbol-defs.svg#icon-Vector-1"></use>
               </svg>
             </a>
           </div>
@@ -30,22 +31,84 @@
             <span class="slider circle"></span>
           </label>
         </div>
-        <div class="header-sign">
+        <div class="header-sign button-sing-in">
           <a class="header-sign-up" id="sign-up" href="#">
             Sign up
             <svg class="arrow" width="20" height="20">
-              <use href="#"></use>
+              <use href="/src/images/symbol-defs.svg#icon-arrow-right"></use>
             </svg>
           </a>
-      </div>
-      <button
-        class="header-burger-menu"
-        aria-label="burger-menu"
-      >
-        <svg class="header-burger-menu-button" width="28" height="28">
+        </div>
+    <div class="header-sign userTitle">
+      <a class="header-sign-up" id="User_list" href="#">
+        <img class="userAva" src="./images/bookAva.png">
+        <span class="userName"></span> 
+        <svg class="arrow" width="20" height="20">
           <use href="#"></use>
+        </svg>
+      </a>
+      <div class="dropdown-content">
+        <button class="dropdown-button header-sign-up" id="logoutBtn">Log Out</button>
+      </div>
+    </div>
+      </div>
+      <button class="header-burger-menu" aria-label="burger-menu">
+        <svg class="header-burger-menu-button" width="28" height="28">
+          <use href="/src/images/symbol-defs.svg#icon-burger-menu"></use>
         </svg>
       </button>
     </nav>
   </div>
 </header>
+
+<div class="modal" id="modal">
+  <div class="modal-content">
+    <div class="modal-header">
+      
+      <button class="modal-close" id="modal-close">&#10005;</button>
+    </div>
+    <form id="sign-in-form" class="sign-form">
+      <div class="form-field">
+      <input type="email" id="signin-email" class="intput-sign" placeholder="Email" required>
+      <svg width="24" height="18" class="svg-icon">
+        <use href="./images/symbol-defs.svg#icon-mail"></use>
+      </svg>
+      </div>
+      <div class="form-field">
+      <input type="password" id="signin-password" class="intput-sign" placeholder="Password" required>
+      <svg width="24" height="18" class="svg-icon">
+        <use href="./images/symbol-defs.svg#icon-lock"></use>
+      </svg>
+    </div>
+    <div class="form-field button-field">
+      <button type="submit" class="sign-button">Sign In</button>
+    </div>
+    </form>
+    <form id="sign-up-form" class="sign-form" style="display: none;">
+      <div class="form-field">
+        <input type="text" id="signup-name" class="intput-sign" placeholder="Name" required>
+      </div>
+      <div class="form-field">
+        <input type="email" id="signup-email" class="intput-sign" placeholder="Email" required>
+        <svg width="24" height="18" class="svg-icon">
+          <use href="./images/symbol-defs.svg#icon-mail"></use>
+        </svg>
+      </div>
+      <div class="form-field">
+        <input type="password" id="signup-password" class="intput-sign" placeholder="Password" required minlength="6">
+        <svg width="24" height="18" class="svg-icon">
+          <use href="./images/symbol-defs.svg#icon-lock"></use>
+        </svg>
+      </div class="form-field">
+      <div class="form-field button-field">
+        <button type="submit" class="sign-button" >Sign Up</button>
+      </div>
+    </form>
+    <div class="form-switch">
+      <span id="switch-signup" class="span-switch active">Sign Up</span>
+      <span id="switch-signin" class="span-switch">Sign In</span>
+    </div>
+  </div>
+</div>
+
+
