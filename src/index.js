@@ -1,4 +1,5 @@
 import './js/checkAuth.js';
+import './js/markup.js';
 import './js/bestSellers.js';
 
 import './js/sidebarCategories.js';
@@ -11,6 +12,5 @@ import './js/theme.js';
 import './js/sign.js';
 import './js/LogOut.js';
 import './js/API.js';
-import './js/markup.js';
 import './js/modal.js';
 
