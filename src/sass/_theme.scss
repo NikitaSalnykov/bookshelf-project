@@ -15,3 +15,10 @@
     // fill: var(--black-color);
 }
 
+.dark-theme .header-container{
+background-color: var(--black-color);
+}
+
+.light-theme .header-container{
+    background-color: var(--white-color);
+}
