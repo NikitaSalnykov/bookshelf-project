@@ -36,7 +36,7 @@ export default {
   isKeyExists,
 };*/
 
-const save = (key, value) => {
+export const save = (key, value) => {
   try {
     const serializedState = JSON.stringify(value);
     sessionStorage.setItem(key, serializedState);
@@ -45,7 +45,7 @@ const save = (key, value) => {
   }
 };
 
-const load = (key) => {
+export const load = (key) => {
   try {
     const serializedState = sessionStorage.getItem(key);
     return serializedState === null ? undefined : JSON.parse(serializedState);
@@ -54,7 +54,7 @@ const load = (key) => {
   }
 };
 
-const clear = (key) => {
+export  const clear = (key) => {
   try {
     sessionStorage.removeItem(key);
   } catch (error) {
@@ -62,7 +62,7 @@ const clear = (key) => {
   }
 };
 
-const isKeyExists = (key) => {
+export  const isKeyExists = (key) => {
   const value = sessionStorage.getItem(key);
   return value !== null && value !== undefined;
 };
