@@ -2,7 +2,7 @@ window.addEventListener('scroll', function() {
     let scrollButton = document.getElementById('scroll-up');
     let scrollIcon = document.getElementById('scroll-svg');
     
-    if (window.scrollY > 500 && window.innerWidth <= 767) {
+    if (window.scrollY > 500) {
         scrollButton.style.display = 'block';
         scrollIcon.style.display = 'block';
     } else {
