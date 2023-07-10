@@ -31,7 +31,7 @@
             <span class="slider circle"></span>
           </label>
         </div>
-        <div class="header-sign">
+        <div class="header-sign button-sing-in">
           <a class="header-sign-up" id="sign-up" href="#">
             Sign up
             <svg class="arrow" width="20" height="20">
@@ -39,6 +39,18 @@
             </svg>
           </a>
         </div>
+    <div class="header-sign userTitle">
+      <a class="header-sign-up" id="User_list" href="#">
+        <img class="userAva" src="./images/bookAva.png">
+        <span class="userName"></span> 
+        <svg class="arrow" width="20" height="20">
+          <use href="#"></use>
+        </svg>
+      </a>
+      <div class="dropdown-content">
+        <button class="dropdown-button header-sign-up" id="logoutBtn">Log Out</button>
+      </div>
+    </div>
       </div>
       <button class="header-burger-menu" aria-label="burger-menu">
         <svg class="header-burger-menu-button" width="28" height="28">
@@ -83,7 +95,7 @@
         </svg>
       </div>
       <div class="form-field">
-        <input type="password" id="signup-password" class="intput-sign" placeholder="Password" required>
+        <input type="password" id="signup-password" class="intput-sign" placeholder="Password" required minlength="6">
         <svg width="24" height="18" class="svg-icon">
           <use href="./images/symbol-defs.svg#icon-lock"></use>
         </svg>

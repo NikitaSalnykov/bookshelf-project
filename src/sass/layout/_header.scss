@@ -196,7 +196,6 @@ input:checked+.circle::before {
     transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
     stroke: #eac645;
 }
-
 .header-sign-up:hover,
 .header-sign-up:focus {
     color: #eac645;
@@ -340,6 +339,39 @@ position: fixed;
     font-size: 18px;
     font-weight: 700;
     text-align: center;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    min-width: 160px;
+   // box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    min-width: 160px;
+   // box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    bottom: 0;
+    transform: translateY(100%);
+}
+img.userAva {
+    width: 37px;
+    height: 37px;
+    border-radius: 40px;
+}
+#nav-item-shopping-list {
+    display: none;
+}
+.userTitle {
+    display: none;
+}
+
+.header-sign:hover .dropdown-content {
+    display: block;
 }
 @media screen and (max-width: 767px) {
     .header-burger-menu {
