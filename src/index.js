@@ -13,3 +13,4 @@ import './js/LogOut.js';
 import './js/API.js';
 import './js/modal.js';
 import './js/scrollup.js';
+import './js/mobil-menu.js'
