@@ -249,18 +249,12 @@ input:checked+.circle-menu::before {
     stroke: none;
 }
 
-// .header-logo-p {
-//     display: flex;
-//     align-items: center;
-//     border-radius: 36px;
-//     color: #111;
-//         font-weight: 500;
-//         font-size: 14px;
-//         line-height: calc(18/14);
-//         letter-spacing: -0.04em;
-//         padding: 8px 16px;
-//         text-transform: none;
-// }
+.header-logo-p {
+    padding: 5px;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 18px;
+}
 
 .header-nav {
     position: relative;
