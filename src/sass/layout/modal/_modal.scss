@@ -223,3 +223,17 @@ span.message-nolog {
   color: var(--brand-color);
   font-size: 19px;
 }
+
+.modal-sign-up {
+  text-transform: none;
+  color: #fff;
+  stroke: #eac645;
+  background: #4f2ee8;
+  border-radius: 36px;
+  padding: 12px 14px;
+  font-weight: 500;
+  line-height: 18px;
+  transition: transform .25s cubic-bezier(.4, 0, .2, 1);
+  text-align: center;
+  width: 100%;
+}
