@@ -19,6 +19,7 @@
   border-color: inherit;
 }
 
+
 .overlay {
   opacity: 0;
   visibility: hidden;
@@ -98,10 +99,6 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  filter: grayscale(
-    100%
-  );
-  filter: contrast(0.75);
   padding: 0px;
   gap: 20px;
   margin-bottom: 40px;
@@ -192,9 +189,9 @@
 
   .shopping-link-list-book {
     position: absolute;
-    left: 256px;
-    top: 229px;
-    overflow-x: hidden;
+    top: 222px;
+    left: 260px;
+        filter: grayscale(100%);
   }
 
   .modal-title-book {

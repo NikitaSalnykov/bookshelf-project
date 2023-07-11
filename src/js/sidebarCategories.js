@@ -5,8 +5,10 @@ import {
   markupCategorieItemMore,
 } from './markup.js';
 import {loader} from './loader.js';
+import { title } from 'process';
 
 const sideCategoriesList = document.querySelector('.js_side_categories_list');
+const titleCategorie = document.querySelector('.title_categories')
 export const booksView = document.querySelector('.js_books_view');
 
 async function createMarkupCategories() {
@@ -16,6 +18,7 @@ async function createMarkupCategories() {
 createMarkupCategories();
 
 async function createMarkupHero() {
+  titleCategorie.textContent = ''
   booksView.innerHTML = loader();
   const mark = await markupAllCategories();
   booksView.innerHTML = mark;
@@ -23,6 +26,7 @@ async function createMarkupHero() {
 createMarkupHero();
 
 async function createMarkupCategorieItem(target) {
+  titleCategorie.textContent = ''
   booksView.innerHTML = loader();
   const mark = await markupCategorieItem(target);
   booksView.innerHTML = mark;

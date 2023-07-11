@@ -28,7 +28,7 @@ export function markupUpSideCategories() {
   return markup;
 }
 
-export function markupAllCategories() {
+export async function markupAllCategories() {
   const markup = getBestSellers().then(resp => {
     return resp
       .map(({ list_name, books }) => {
@@ -85,8 +85,8 @@ export function markupCategorieItem(target) {
         ({
           list_name,
           book_image = 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fru.freepik.com%2Fpremium-psd%2Fblank-cover-book-mockup_6814948.htm&psig=AOvVaw1pv5Qa3fm2txSvUlVovAqz&ust=1687133787207000&source=images&cd=vfe&ved=0CBEQjRxqFwoTCKCwj6LFy_8CFQAAAAAdAAAAABAF',
-          title = 'book without title',
-          author = 'anonymous author',
+          title = 'Unknown book',
+          author = 'Unknown author',
           _id,
         }) => {
           const startTitle = list_name
