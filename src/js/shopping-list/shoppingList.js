@@ -1,4 +1,4 @@
-import svgBin from '../../images/sprite.svg';
+
 import emptyDtTab1x from '../../images/shop-list/empty-desktop-tablet@1x.png';
 import emptyDtTab2x from '../../images/shop-list/empty-desktop-tablet@2x.png';
 import emptyMob1x from '../../images/shop-list/empty-mobile@1x.png';
@@ -11,12 +11,41 @@ import bookShopPng from '../../images/png-icons/shops/bookshop-icon1x.png';
 import bookShopPng2x from '../../images/png-icons/shops/bookshop-icon2x.png';
 
 import Pagination from 'tui-pagination';
+import { getBook } from '../API';
+import { load } from '../storage';
+import Firebase from '../firebase/firebase.js';
+
+const firebaseInstance = new Firebase();
 
 const cartEl = document.querySelector('.js-shopping-cart');
 const cartListEl = document.querySelector('.js-cart-list');
 const paginationContainer = document.getElementById('pagination');
 
 const STORAGE_KEY = 'storage-data';
+
+const userId = load('UserData').userID
+console.log(userId);
+
+// let books = []
+// async function getBooks() {
+//   const bookObj = await getBook('643282b1e85766588626a0dc').then(a => a);
+//   books.push(bookObj)
+// }
+// getBooks()
+// createFullCart(books, 1)
+
+
+// firebaseInstance.firebaseSelectBooksFromList(userId).then(function (result) {
+//             if (result !== false) {
+//                 console.log('Список книжок з корзини:', result);
+//             } else {
+//                 console.log('Корзина порожня');
+//             }
+//         }).catch(function (error) {
+//             console.error('Помилка при отриманні списку книжок з корзини:', error);
+//         });
+
+
 
 let page;
 let currentPage = 1;
@@ -71,6 +100,8 @@ function createEmptyCart() {
 
   cartEl.innerHTML = markup;
 }
+
+
 
 // Функція створення повного кошика
 function createFullCart(arr, page) {

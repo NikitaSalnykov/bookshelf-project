@@ -42,7 +42,10 @@ background-color: var(--black-color);
     background: rgba(1, 1, 1, 0.6)
 }
 
-
+.dark-theme .header-nav-link-icon {
+    fill: var(--white-color);
+    stroke: transparent;
+}
 
 
 // LOADER DARK THEME
