@@ -169,7 +169,7 @@ input:checked+.circle-menu::before {
 }
 
 .menu-close {
-    stroke: #111;
+    stroke: inherit;
     background-color: #0000;
     border: none;
     line-height: 0;
@@ -179,6 +179,7 @@ input:checked+.circle-menu::before {
 .mobile-menu-icon {
     margin-left: 4px;
     fill: #fff;
+    stroke: none;
 }
 
 .mobile-menu-img {
@@ -280,7 +281,7 @@ input:checked+.circle-menu::before {
     display: flex;
     align-items: center;
     border-radius: 36px;
-    color: #111;
+    color: inherit;
     font-weight: 500;
     font-size: 14px;
     line-height: calc(18/14);
@@ -315,13 +316,13 @@ input:checked+.circle-menu::before {
     background-color: transparent;
     line-height: 0;
     border: none;
-    stroke: #111111;
+    // stroke: #111111;
 }
 
 .header-burger-menu {
-    stroke: #111;
-    fill: #111111;
-    color: black;
+    stroke: inherit;
+    fill: inherit;
+    color: inherit;
     background: none;
     border: none;
     cursor: pointer;
