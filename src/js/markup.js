@@ -154,7 +154,6 @@ export async function markupModal(bookId) {
     checkAuth = true;
   }
   if (checkAuth === false) {
-    test = document.querySelector('.add-book-button');
     addBookButtonStyle = "display: none;"; // Set the style to hide the button
     messagenolog = "display: block;";
   } else {
