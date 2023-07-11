@@ -6,12 +6,13 @@ import {
 } from './API.js';
 
 import { cutTitle } from './cutTitles.js';
-
+import { isKeyExists, load, save } from './storage.js';
 import logo1 from '../images/modal-images/logo1.png';
 import logo2 from '../images/modal-images/logo2.png';
 import logo3 from '../images/modal-images/logo3.png';
 
 const titleCategories = document.querySelector('.title_categories');
+
 
 export function markupUpSideCategories() {
   const markup = getCategoryList().then(resp => {
@@ -145,68 +146,87 @@ export async function markupCategorieItemMore(target) {
 const modalContent = document.querySelector('.modal-content');
 
 export async function markupModal(bookId) {
-
+  let checkAuth = false;
+  let addBookButtonStyle = ""; // Add this variable
+  let messagenolog = "";
+  const exists = isKeyExists('UserData');
+  if (exists) {
+    checkAuth = true;
+  }
+  if (checkAuth === false) {
+    test = document.querySelector('.add-book-button');
+    addBookButtonStyle = "display: none;"; // Set the style to hide the button
+    messagenolog = "display: block;";
+  } else {
+    addBookButtonStyle = "display: block;"; // Set the style to hide the button
+    messagenolog = "display: none;";
+  }
+  
   const markup = await getBook(bookId).then(
     ({ book_image, title, author, description, _id, buy_links }) => `
     <div class="modal-content-book">
-<div class="book-modal" data-book-id="${_id}">
-      <img class="modal-image-book" src="${book_image}" alt="Book cover" />
-      <div class="modal-info">
-      <h3 class="modal-title-book">${title}</h3>
-      <p class="modal-author-book">${author}</p>
-      <p class="modal-description-book">${
-        description || 'Oopps. No description'}</p>
+      <div class="book-modal" data-book-id="${_id}">
+        <img class="modal-image-book" src="${book_image}" alt="Book cover" />
+        <div class="modal-info">
+          <h3 class="modal-title-book">${title}</h3>
+          <p class="modal-author-book">${author}</p>
+          <p class="modal-description-book">${
+            description || 'Oopps. No description'}</p>
+        </div>
       </div>
     </div>
-  </div>
-  <ul class="shopping-link-list-book">
-    <li class="shopping-link-item-book">
-      <a
-        href="${buy_links[0].url}"
-        target="_blank"
-        rel="noreferrer noopener"
-        class="shopping-link"
-      >
-        <img
-          class="shopping-link-image"
-          src="${logo1}"
-          width="62px"
-          height="19px"
-          alt="Amazon-link"
-      /></a>
-    </li>
-    <li class="shopping-link-item">
-      <a href="${buy_links[1].url}"
-      target="_blank"
-      rel="noreferrer noopener"
-      class="shopping-link">
-        <img
-          class="shopping-link-image"
-          src="${logo2}"
-          width="33px"
-          height="32px"
-          alt="Applebook-link"
-      /></a>
-    </li>
-    <li class="shopping-link-item">
-      <a href="${buy_links[4].url}"
-      target="_blank"
-      rel="noreferrer noopener"
-      class="shopping-link">
-        <img
-          class="shopping-link-image"
-          src="${logo3}"
-          width="38px"
-          height="36px"
-          alt="Shops-link"
-      /></a>
-    </li>
-  </ul>
-  <button class="add-book-button js-btn-add" type="submit" data-id=${_id}>add to shopping list</button>
-
-  <p class="under-remove-btn-text text-hidden">Сongratulations! You have added the book to the shopping list. To delete, press the button “Remove from the shopping list”.</p>
-    `
+    <ul class="shopping-link-list-book">
+      <li class="shopping-link-item-book">
+        <a
+          href="${buy_links[0].url}"
+          target="_blank"
+          rel="noreferrer noopener"
+          class="shopping-link"
+        >
+          <img
+            class="shopping-link-image"
+            src="${logo1}"
+            width="62px"
+            height="19px"
+            alt="Amazon-link"
+          />
+        </a>
+      </li>
+      <li class="shopping-link-item">
+        <a href="${buy_links[1].url}"
+          target="_blank"
+          rel="noreferrer noopener"
+          class="shopping-link">
+          <img
+            class="shopping-link-image"
+            src="${logo2}"
+            width="33px"
+            height="32px"
+            alt="Applebook-link"
+          />
+        </a>
+      </li>
+      <li class="shopping-link-item">
+        <a href="${buy_links[4].url}"
+          target="_blank"
+          rel="noreferrer noopener"
+          class="shopping-link">
+          <img
+            class="shopping-link-image"
+            src="${logo3}"
+            width="38px"
+            height="36px"
+            alt="Shops-link"
+          />
+        </a>
+      </li>
+    </ul>
+    <button class="add-book-button js-btn-add" type="submit" data-id=${_id} style="${addBookButtonStyle}">add to shopping list</button>
+    <span class="message-nolog" style="${messagenolog}">If you want to add book, please LogIn</span>
+    <p class="under-remove-btn-text text-hidden">Congratulations! You have added the book to the shopping list. To delete, press the button "Remove from the shopping list".</p>
+  `
   );
+  
   console.log(markup);
   return markup;
 }
