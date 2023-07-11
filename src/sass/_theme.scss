@@ -16,9 +16,14 @@
 }
 
 .dark-theme .header-container{
-background-color: var(--black-color);
+    background-color: var(--black-color);
+    border-color: var(--white-color);
 }
 
 .light-theme .header-container{
     background-color: var(--white-color);
+}
+
+.dark-theme .categories-list::-webkit-scrollbar-thumb {
+    background-color: var(--black-color);
 }
