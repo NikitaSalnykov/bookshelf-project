@@ -43,10 +43,15 @@ background-color: var(--black-color);
 }
 
 .dark-theme .header-nav-link-icon {
-    fill: var(--white-color);
     stroke: transparent;
 }
+.dark-theme .modal-info {
+        color: var(--main-text-color-light-theme);
+}
 
+.dark-theme .add-book-button{
+    color: var(--main-text-color-light-theme);
+}
 .dark-theme .card {
     gap: 24px;
     padding: 24px;
