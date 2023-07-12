@@ -12,5 +12,5 @@ clear("UserData");
   shopingLsit.style.display = 'none';
   userTitle.style.display = 'none';
   singINButton.style.display = 'block';
-    
+    window.location.href = 'index.html';
     });
