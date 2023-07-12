@@ -19,7 +19,7 @@
 .header-nav-menu {
     display: flex;
     align-items: center;
-    gap: 14px;
+    padding-left: 130px
 }
 
 .toggle-menu {
@@ -296,6 +296,7 @@ input:checked+.circle-menu::before {
 
 .header-nav-link-icon {
     margin-left: 8px;
+    stroke: transparent;
 }
 
 .disabled-link {
