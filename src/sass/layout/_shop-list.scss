@@ -35,8 +35,16 @@ button {
 
 .shopping-list {
   width: 100%;
-  margin-left: 40px;
 }
+
+ @media (min-width: 1440px)  {
+.shopping-list {
+    margin-left: 40px;
+  }
+ }
+
+
+
 .shopping-list__title {
   font-family: 'DM Sans';
   font-weight: 700;
@@ -120,7 +128,7 @@ button {
   }
 }
 .card {
-  overflow: hidden;
+  // overflow: hidden;
   position: relative;
   display: flex;
   gap: 14px;
@@ -169,7 +177,6 @@ button {
     white-space: nowrap;
     text-overflow: ellipsis;
 
-    color: var(--black-color);
 
     @media (min-width: $tabletMin) {
       max-width: 460px;
@@ -222,7 +229,6 @@ button {
 
     text-overflow: ellipsis;
 
-    color: var(--black-color);
     @media (min-width: $tabletMin) {
       // width: 100%;
 
@@ -287,17 +293,14 @@ button {
     height: 28px;
     padding: 6px;
     border-radius: 50%;
-
+    stroke: var(--white-color);
     background-color: var(--brand-color);
     border: none;
-    fill: #ffffff;
+    fill: transparent;
 
     cursor: pointer;
 
-    transition-property: fill;
-    transition-duration: 250ms;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    transition: background-color 500ms var(--transition);
+    transition: background-color 100ms var(--transition), stroke 100ms var(--transition);;
 
     @media (min-width: $tabletMin) {
       padding: 8px;
@@ -309,7 +312,7 @@ button {
 
     &:hover {
       background-color: var(--hover-dark-theme);
-      fill: var(--black-color);
+      stroke: var(--black-color);
     }
   }
 }

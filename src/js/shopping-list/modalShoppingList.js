@@ -1,11 +1,10 @@
 import {
   markupModal,
-} from './markup.js';
-import { booksView } from './sidebarCategories.js';
+} from '../markup.js';
 const overlay = document.querySelector('#overlay-modal');
 const closeButton = document.querySelector('.js-modal-close');
 const modalBook = document.querySelector('.modal-book');
-// const modalShoppingList = document.querySelector('.js-cart-list')
+const modalShoppingList = document.querySelector('.js-cart-list')
 const newModal = document.querySelector('.new-modal')
 
 let bookId = ''
@@ -31,11 +30,11 @@ export async function createMarkupModal(bookId) {
   newModal.innerHTML = mark;
 }
 
-booksView.addEventListener('click', onBook);
+modalShoppingList.addEventListener('click', onBook);
 
 async function onBook(e) {
   try {
-    bookId = e.target.closest('.outlineli').dataset.id;
+    bookId = e.target.closest('.js-card').dataset.id;
   } catch (error) {
     return;
   }

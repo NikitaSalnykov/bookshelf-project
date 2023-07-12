@@ -4,7 +4,6 @@ import './js/markup.js';
 import './js/sidebarCategories.js';
 import './js/support.js'
 
-
 // import './js/firebase/firebase-test.js';
 
 import './js/theme.js';

@@ -227,8 +227,6 @@ export async function markupModal(bookId) {
     <p class="under-remove-btn-text text-hidden">Congratulations! You have added the book to the shopping list. To delete, press the button "Remove from the shopping list".</p>
   `
   );
-  
-  console.log(markup);
   return markup;
 }
 

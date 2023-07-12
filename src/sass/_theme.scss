@@ -47,6 +47,16 @@ background-color: var(--black-color);
     stroke: transparent;
 }
 
+.dark-theme .card {
+    gap: 24px;
+    padding: 24px;
+    background: black;
+    border-color: white;
+}
+
+.dark-theme .card__shops {
+    filter: invert(1);}
+
 
 // LOADER DARK THEME
 
