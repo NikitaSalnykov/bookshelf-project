@@ -5,11 +5,11 @@ const active = document.querySelector('.shopping-list__title');
 
 const isActive = () => {
   if (active) {
-  navItems[1].classList.add('active')
-    mobileNavItems[1].classList.add('active')
+  navItems[1].classList.add('activeItem')
+    mobileNavItems[1].classList.add('activeItem')
 } else {
-  navItems[0].classList.add('active')
-    mobileNavItems[0].classList.add('active')
+  navItems[0].classList.add('activeItem')
+    mobileNavItems[0].classList.add('activeItem')
 }
 }
 

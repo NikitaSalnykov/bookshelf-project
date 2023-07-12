@@ -1,11 +1,11 @@
 import {
   markupModal,
 } from '../markup.js';
-
+import { onClick,checkBook } from '../add-to-cart.js';
 import Firebase from '../firebase/firebase';
 import { load } from '../storage';
 import { markupFullCard, createEmptyCart } from './shoppingList'
-import { loader } from '../loader'
+
 
 const firebaseInstance = new Firebase();
 const overlay = document.querySelector('#overlay-modal');
@@ -20,6 +20,39 @@ let bookId = ''
 const userId = load('UserData').userID
 
 function closeModal() {
+    firebaseInstance.onAuthStateChanged(function (user) {
+    if (user) {
+        const userId = user.uid;
+      firebaseInstance.firebaseSelectBooksFromList(userId).then(async function (result) {
+          // console.log('id', userId);
+            if (result !== false) {
+              console.log('Список книжок з корзини:', result);
+              
+              const a = markupFullCard(result)
+              Promise.all(a).then(markup => {
+                cartListEl.innerHTML = markup.join('')
+            })
+            .catch(error => {
+              console.error('Ошибка при ожидании результатов:', error);
+            });
+
+            } else {
+                createEmptyCart()
+                console.log('Корзина порожня');
+            }
+        }).catch(function (error) {
+            console.error('Помилка при отриманні списку книжок з корзини:', error);
+        });
+        return userId;
+    }
+    else {
+     
+        console.log('User is not authenticated');
+        return false;
+    }
+    
+} 
+)
   modalBook.classList.remove('active');
   overlay.classList.remove('active');
   document.body.style.overflow = '';
@@ -35,9 +68,14 @@ function handleKeyPress(event) {
   }
 }
 
+let updateCart = document;
+
 export async function createMarkupModal(bookId) {
   const mark = await markupModal(bookId);
   newModal.innerHTML = mark;
+  const addBook = document.querySelector('.add-book-button')
+  checkBook(addBook)
+  addBook.addEventListener('click', onClick)
 }
 
 modalShoppingList.addEventListener('click', onBook);
