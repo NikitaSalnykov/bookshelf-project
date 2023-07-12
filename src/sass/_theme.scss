@@ -15,6 +15,10 @@
     // fill: var(--black-color);
 }
 
+.dark-theme .header-nav-items a{
+    fill: var(--white-color);
+}
+
 .dark-theme .header-container{
 background-color: var(--black-color);
     border-color: var(--white-color);
