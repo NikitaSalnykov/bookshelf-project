@@ -158,7 +158,7 @@ input:checked+.circle-menu::before {
     transition: border-color 0.3s, background-color 0.3s, font-weight 0.3s;
 }
 
-.mobile-menu-link.active {
+.active {
     border-color: #eac645;
     background-color: #eac645;
     color: #000;
