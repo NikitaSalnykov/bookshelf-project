@@ -11,10 +11,12 @@ function onClick(event) {
     event.preventDefault()
     const button = event.target;
     const bookId = button.dataset.id;
+    const successText = document.querySelector('.under-remove-btn-text')
     
     if (button.textContent=== `remove from the shopping list`) {
         dataBase.firebaseRemoveBookFromList(getUserId(), bookId);
         button.textContent = `Add to shopping list`;
+        successText.classList.add('text-hidden')
         return;
     }
     dataBase.firebaseAddBookToList(getUserId(), bookId)
@@ -26,6 +28,7 @@ function onClick(event) {
               return;
           } else if(result.includes(bookId)) {
               button.textContent = `remove from the shopping list`
+              successText.classList.remove('text-hidden')
               }
         }).catch(function (error) {
           console.error('Помилка :', error);
@@ -40,6 +43,7 @@ function onClick(event) {
 const checkBook = (btn) => {
     dataBase.onAuthStateChanged(function (user) {
         const bookId = btn.dataset.id
+        const successText = document.querySelector('.under-remove-btn-text')
       if (user) {
         const userId = user.uid;
           dataBase.firebaseSelectBooksFromList(userId).then(function (result) {
@@ -47,6 +51,7 @@ const checkBook = (btn) => {
               return;
           } else if(result.includes(bookId)) {
               btn.textContent = `remove from the shopping list`
+              successText.classList.remove('text-hidden')
               }
         }).catch(function (error) {
           console.error('Помилка :', error);
