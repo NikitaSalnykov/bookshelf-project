@@ -35,16 +35,30 @@ console.log(userId);
 // createFullCart(books, 1)
 
 
-// firebaseInstance.firebaseSelectBooksFromList(userId).then(function (result) {
-//             if (result !== false) {
-//                 console.log('Список книжок з корзини:', result);
-//             } else {
-//                 console.log('Корзина порожня');
-//             }
-//         }).catch(function (error) {
-//             console.error('Помилка при отриманні списку книжок з корзини:', error);
-//         });
 
+firebaseInstance.onAuthStateChanged(function (user) {
+    if (user) {
+        const userId = user.uid;
+      firebaseInstance.firebaseSelectBooksFromList(userId).then(function (result) {
+          console.log('id', userId);
+            if (result !== false) {
+                console.log('Список книжок з корзини:', result);
+            } else {
+                console.log('Корзина порожня');
+            }
+        }).catch(function (error) {
+            console.error('Помилка при отриманні списку книжок з корзини:', error);
+        });
+        return userId;
+    }
+    else {
+     
+        console.log('User is not authenticated');
+        return false;
+    }
+    
+} 
+);
 
 
 let page;
