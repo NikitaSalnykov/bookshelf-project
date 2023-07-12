@@ -7,13 +7,34 @@
     </a>
     <a class="header-logo-p" href="/src/index.html">Bookshelf</a>
     <div class="header-nav">
-        <div class="toggle-menu">
+      <div class="header-nav-menu">
+        <div class="mobileWrap">
+          <label class="switch dark-mode-btn-active" for="theme-switch">
+            <input id="theme-switch" type="checkbox" />
+            <span class="slider circle"></span>
+          </label>
+        </div>
+      <!-- <div class="toggle-menu">
         <div class="mobileWrap-menu">
           <label class="switch-menu" for="theme-switch">
             <input id="theme-switch" type="checkbox" />
             <span class="slider-menu circle-menu"></span>
           </label>
         </div>
+      </div> -->
+        <!-- <div class="header-theme-switch"> 
+        <div class="mobileWrap-menu">
+          <label class="switch dark-mode-btn-active" for="theme-switch">
+            <input id="theme-switch" type="checkbox" />
+            <span class="slider circle"></span>
+          </label>
+        </div> -->
+        <!-- <div class="mobileWrap">
+          <label class="switch dark-mode-btn-active" for="theme-switch">
+            <input id="theme-switch" type="checkbox" />
+            <span class="slider circle"></span>
+          </label>
+        </div> -->
       </div>
         <button class="menu-close" id="close-modal-mobile" type="button">
           <svg class="menu-close-icon" width="28" height="28">
@@ -39,18 +60,24 @@
     </div>
 
     <div class="mobile-menu-log-in">
-      <button class="log-btn" type="button">
+      <!-- <button class="log-btn" type="button">
         <span>Log out</span>
         <svg class="arrow-right" width="20" height="20">
           <use href="#"></use>
         </svg>
-      </button>
-      <button class="log-btn" type="button">
+      </button> -->
+      <a class="log-btn" id="sign-up" href="#">
+            Sign up
+            <svg class="arrow" width="20" height="20">
+              <use href="/src/images/symbol-defs.svg#icon-arrow-right"></use>
+            </svg>
+          </a>
+      <!-- <a class="log-btn" id="sign-up">
         <span>Log in</span>
         <svg class="arrow-right" width="20" height="20">
           <use href="/src/images/symbol-defs.svg#icon-arrow-right"></use>
         </svg>
-      </button>
+      </a> -->
     </div>
     <img class="mobile-menu-img" src="/src/images/books.png" alt="books" />
   </div>
