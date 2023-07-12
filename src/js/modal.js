@@ -1,6 +1,7 @@
 import {
   markupModal,
 } from './markup.js';
+import { onClick,checkBook } from './add-to-cart.js';
 import { booksView } from './sidebarCategories.js';
 const overlay = document.querySelector('#overlay-modal');
 const closeButton = document.querySelector('.js-modal-close');
@@ -29,6 +30,9 @@ function handleKeyPress(event) {
 export async function createMarkupModal(bookId) {
   const mark = await markupModal(bookId);
   newModal.innerHTML = mark;
+  const addBook = document.querySelector('.add-book-button')
+  checkBook(addBook)
+  addBook.addEventListener('click',onClick)
 }
 
 booksView.addEventListener('click', onBook);
