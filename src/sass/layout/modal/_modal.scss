@@ -145,9 +145,9 @@
   line-height: 12px;
   text-align: center;
   letter-spacing: -0.04em;
-  color: rgba(17, 17, 17, 0.5);
+  color: inherit;
   text-transform: none;
-  margin: 20px auto 0;
+  margin: 5px auto 0;
 }
 
 .text-hidden {
@@ -157,7 +157,7 @@
 @media screen and (min-width: 600px) {
   .modal-book {
     max-width: 579px;
-    max-height: 480px;
+  max-height: 480px;
     padding: 40px;
     overflow: hidden;
   }
