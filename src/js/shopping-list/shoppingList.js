@@ -14,7 +14,8 @@ import Pagination from 'tui-pagination';
 import { getBook } from '../API';
 import { load } from '../storage';
 import Firebase from '../firebase/firebase.js';
- 
+import { loader } from '../loader'
+
 const firebaseInstance = new Firebase();
 
 const modalShoppingList = document.querySelector('.js-card')
@@ -25,38 +26,25 @@ const paginationContainer = document.getElementById('pagination');
 const STORAGE_KEY = 'storage-data';
 
 const userId = load('UserData').userID
-console.log(userId);
-
-// let books = []
-// async function getBooks() {
-//   const bookObj = await getBook('643282b1e85766588626a0dc').then(a => a);
-//   books.push(bookObj)
-// }
-// getBooks()
-// createFullCart(books, 1)
-
-// modalShoppingList.addEventListener('click', createMarkupModal);
 
 firebaseInstance.onAuthStateChanged(function (user) {
+  cartListEl.innerHTML = loader()
     if (user) {
         const userId = user.uid;
       firebaseInstance.firebaseSelectBooksFromList(userId).then(async function (result) {
-          // console.log('id', userId);
             if (result !== false) {
               console.log('Список книжок з корзини:', result);
               
               const a = markupFullCard(result)
               Promise.all(a).then(markup => {
                 cartListEl.innerHTML = markup.join('')
-                
-               
             })
             .catch(error => {
               console.error('Ошибка при ожидании результатов:', error);
             });
 
             } else {
-                 createShoppingList();
+                createEmptyCart() ;
                 console.log('Корзина порожня');
             }
         }).catch(function (error) {
@@ -89,7 +77,7 @@ firebaseInstance.onAuthStateChanged(function (user) {
 
 // createShoppingList();
 
-// function createShoppingList() {
+// export function createShoppingList() {
 //   const storageData = JSON.parse(localStorage.getItem(STORAGE_KEY));
 //   if (!storageData || storageData.length === 0) {
 //     createEmptyCart(); // виклик функції створення порожнього кошика
@@ -100,36 +88,36 @@ firebaseInstance.onAuthStateChanged(function (user) {
 //   }
 // }
 
-// // Функція створення порожнього кошика
-// function createEmptyCart() {
-//   const markup = `
-//     <div class="cart-empty">
-//       <p class="cart-empty__text">
-//         This page is empty, add some books and proceed to order.
-//       </p>
-//       <picture>
-//         <source
-//           srcset="
-//             ${emptyDtTab1x} 1x,
-//             ${emptyDtTab2x} 2x
-//           "
-//           media="(min-width: 768px)"
-//         />
-//         <img
-//           srcset="
-//             ${emptyMob1x} 1x,
-//             ${emptyMob2x} 2x
-//             "
-//           src="${emptyMob1x}"
-//           alt="Empty cart"
-//           loading="lazy"
-//           class="cart-empty__img"
-//         />
-//       </picture>
-//     </div>`;
+// Функція створення порожнього кошика
+export function createEmptyCart() {
+  const markup = `
+    <div class="cart-empty">
+      <p class="cart-empty__text">
+        This page is empty, add some books and proceed to order.
+      </p>
+      <picture>
+        <source
+          srcset="
+            ${emptyDtTab1x} 1x,
+            ${emptyDtTab2x} 2x
+          "
+          media="(min-width: 768px)"
+        />
+        <img
+          srcset="
+            ${emptyMob1x} 1x,
+            ${emptyMob2x} 2x
+            "
+          src="${emptyMob1x}"
+          alt="Empty cart"
+          loading="lazy"
+          class="cart-empty__img"
+        />
+      </picture>
+    </div>`;
 
-//   cartEl.innerHTML = markup;
-// }
+  cartEl.innerHTML = markup;
+}
 
 
 
@@ -341,7 +329,7 @@ firebaseInstance.onAuthStateChanged(function (user) {
 //   }
 // }
 
-function markupFullCard(arr) {
+export function markupFullCard(arr) {
   const markup = arr.map(el =>
                  getBook(el).then(({
                   _id,

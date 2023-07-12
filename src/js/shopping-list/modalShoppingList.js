@@ -1,13 +1,23 @@
 import {
   markupModal,
 } from '../markup.js';
+
+import Firebase from '../firebase/firebase';
+import { load } from '../storage';
+import { markupFullCard, createEmptyCart } from './shoppingList'
+import { loader } from '../loader'
+
+const firebaseInstance = new Firebase();
 const overlay = document.querySelector('#overlay-modal');
 const closeButton = document.querySelector('.js-modal-close');
 const modalBook = document.querySelector('.modal-book');
 const modalShoppingList = document.querySelector('.js-cart-list')
 const newModal = document.querySelector('.new-modal')
+const cartListEl = document.querySelector('.js-cart-list');
 
 let bookId = ''
+
+const userId = load('UserData').userID
 
 function closeModal() {
   modalBook.classList.remove('active');
@@ -33,6 +43,44 @@ export async function createMarkupModal(bookId) {
 modalShoppingList.addEventListener('click', onBook);
 
 async function onBook(e) {
+  if (e.target.nodeName === "BUTTON") { 
+    bookId = e.target.closest('.js-card').dataset.id;
+    firebaseInstance.firebaseRemoveBookFromList(userId, bookId)
+    return firebaseInstance.onAuthStateChanged(function (user) {
+    if (user) {
+        const userId = user.uid;
+      firebaseInstance.firebaseSelectBooksFromList(userId).then(async function (result) {
+          // console.log('id', userId);
+            if (result !== false) {
+              console.log('Список книжок з корзини:', result);
+              
+              const a = markupFullCard(result)
+              Promise.all(a).then(markup => {
+                cartListEl.innerHTML = markup.join('')
+            })
+            .catch(error => {
+              console.error('Ошибка при ожидании результатов:', error);
+            });
+
+            } else {
+                createEmptyCart()
+                console.log('Корзина порожня');
+            }
+        }).catch(function (error) {
+            console.error('Помилка при отриманні списку книжок з корзини:', error);
+        });
+        return userId;
+    }
+    else {
+     
+        console.log('User is not authenticated');
+        return false;
+    }
+    
+} 
+);
+   }
+  
   try {
     bookId = e.target.closest('.js-card').dataset.id;
   } catch (error) {

@@ -71,6 +71,7 @@ button {
     }
   }
 
+
   &__list {
     display: flex;
     flex-direction: column;
@@ -137,6 +138,10 @@ button {
   background: var(--background-color-light-theme);
   border: 2px solid rgba(79, 46, 232, 0.4);
   border-radius: 16px;
+
+      &:hover {
+          cursor: pointer;
+        }
 
   @media (min-width: $tabletMin) {
     gap: 24px;
