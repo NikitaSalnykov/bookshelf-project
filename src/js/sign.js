@@ -10,13 +10,15 @@ const switchSignup = document.getElementById('switch-signup');
 const switchSignin = document.getElementById('switch-signin');
 
 // Відкриття модального вікна з формою "Sign Up" відображеною за замовчуванням
-signUpButton.addEventListener('click', function(event) {
-  event.preventDefault();
-  modal.style.display = 'block';
-  signUpForm.style.display = 'block';
-  signInForm.style.display = 'none';
-  switchSignup.classList.add('active');
-  switchSignin.classList.remove('active');
+document.addEventListener('click', function(event) {
+  if (event.target.id === 'sign-up') {
+    event.preventDefault();
+    modal.style.display = 'block';
+    signUpForm.style.display = 'block';
+    signInForm.style.display = 'none';
+    switchSignup.classList.add('active');
+    switchSignin.classList.remove('active');
+  }
 });
 
 // Закриття модального вікна
