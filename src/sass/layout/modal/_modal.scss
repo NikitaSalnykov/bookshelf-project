@@ -1,0 +1,240 @@
+.modal-book {
+  opacity: 0;
+  visibility: hidden;
+  position: relative;
+  width: 100%;
+  max-width: 335px;
+  max-height: 100vh;
+  border: 2px solid #111111;
+  border-radius: 18px;
+  padding: 40px 24px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 99;
+  transition: var(--transition);
+  background-color: inherit;
+  overflow-y: scroll;
+  border-color: inherit;
+}
+
+
+.overlay {
+  opacity: 0;
+  visibility: hidden;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(17, 17, 17, 0.4);
+  border: 1px solid #000000;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  z-index: 20;
+  transition: var(--transit);
+  overflow: hidden;
+}
+
+.modal-book.active,
+.overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.close-modal-button {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  height: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  background-color: transparent;
+}
+
+.close-modal-button:hover,
+.close-modal-button:focus {
+  stroke: var(--brand-color);
+}
+
+.modal-image-book {
+  width: 287px;
+  height: 408px;
+  border-radius: 8px;
+  margin-bottom: 14px;
+}
+
+.modal-title-book {
+  width: 250px;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 18px;
+  letter-spacing: -0.04em;
+  margin-bottom: 4px;
+}
+
+.modal-author-book {
+  font-style: italic;
+  font-size: 12px;
+  line-height: 14px;
+  letter-spacing: -0.04em;
+  color: #B4AFAF;
+  margin-bottom: 18px;
+  text-transform: none;
+}
+
+.modal-description-book {
+  height: 70px;
+  overflow: hidden;
+  line-height: 18px;
+  letter-spacing: -0.04em;
+  text-transform: none;
+  margin-bottom: 14px;
+}
+
+.shopping-link-list-book {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px;
+  gap: 20px;
+  margin-bottom: 40px;
+
+}
+
+// .shopping-link-image {
+//   filter: grayscale();
+// }
+
+.shopping-link-book:hover,
+.shopping-link-book:focus {
+  mix-blend-mode: luminosity;
+  filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.15));
+}
+
+.add-book-button {
+  display: block;
+  min-height: 46px;
+  font-family: 'DM Sans';
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  padding: 14px 28px;
+  margin-bottom: 8px;
+  margin: auto;
+  background-color: transparent;
+  border: 2px solid var(--brand-color);
+  border-radius: 40px;
+  color: inherit;
+}
+
+.add-book-button:hover,
+.add-book-button:focus {
+  background-color: var(--brand-color);
+  color: var(--white-color);
+  box-shadow: 0px 4px 18px rgba(0, 0, 0, 0.15);
+}
+
+.under-remove-btn-text {
+  width: 242px;
+  height: 36px;
+  font-size: 10px;
+  line-height: 12px;
+  text-align: center;
+  letter-spacing: -0.04em;
+  color: inherit;
+  text-transform: none;
+  margin: 5px auto 0;
+}
+
+.text-hidden {
+  display: none;
+}
+
+@media screen and (min-width: 600px) {
+  .modal-book {
+    max-width: 579px;
+  max-height: 480px;
+    padding: 40px;
+    overflow: hidden;
+  }
+
+  .add-book-button {
+    width: 495px;
+    height: 64px;
+  }
+
+  .close-modal-button {
+    position: absolute;
+    top: 31px;
+    right: 31px;
+    width: 24px;
+    height: 14px;
+    stroke: inherit;
+  }
+
+  .modal-image-book {
+    width: 192px;
+    height: 281px;
+    object-fit: cover;
+  }
+
+  .book-modal {
+    margin-bottom: 30px;
+    display: flex;
+    gap: 24px;
+  }
+
+  .shopping-link-list-book {
+    position: absolute;
+    top: 222px;
+    left: 260px;
+        filter: grayscale(100%);
+  }
+
+  .modal-title-book {
+    font-size: 24px;
+    line-height: 28px;
+    margin-bottom: 8px;
+  }
+
+  .modal-author-book {
+    font-size: 14px;
+    line-height: 18px;
+    margin-bottom: 20px;
+  }
+
+  .modal-description-book {
+    margin-bottom: 20px;
+  }
+
+  .under-remove-btn-text {
+    width: 324px;
+    height: 28px;
+    font-size: 12px;
+    line-height: 14px;
+  }
+}
+
+span.message-nolog {
+  text-align: center;
+  color: var(--brand-color);
+  font-size: 19px;
+}
+
+.modal-sign-up {
+  text-transform: none;
+  color: #fff;
+  stroke: #eac645;
+  background: #4f2ee8;
+  border-radius: 36px;
+  padding: 12px 14px;
+  font-weight: 500;
+  line-height: 18px;
+  transition: transform .25s cubic-bezier(.4, 0, .2, 1);
+  text-align: center;
+  width: 100%;
+}
