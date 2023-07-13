@@ -16,7 +16,6 @@ p {
 a {
   display: block;
   text-decoration: none;
-    color: inherit;
 }
 
 img {
@@ -69,7 +68,7 @@ body {
   font-size: 14px;
   line-height: calc(18 / 14);
   letter-spacing: -0.04em;
-  stroke: var(--black-color);
+
   background-color: var(--background-color-light-theme);
 }
 

@@ -1,15 +1,14 @@
 
+
 export function loader() {
-  return `
-  <div style="display: flex; flex-direction: column">
-  <div class="loader book">
+  return `<div class="loader book">
   <figure class="page"></figure>
   <figure class="page"></figure>
   <figure class="page"></figure>
 </div>
-<h1 class="loader-title">Reading</h1>
-  </div>`
+<h1 class="loader-title">Reading</h1>`
 }
+
 
 
 //example

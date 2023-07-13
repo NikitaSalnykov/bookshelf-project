@@ -12,7 +12,6 @@ class Firebase {
       databaseURL: "https://bookshelf-2f203-default-rtdb.firebaseio.com"
     };
     firebase.initializeApp(firebaseConfig);
-    
   }
 
   firebaseSignUp(email, password, userName) {
