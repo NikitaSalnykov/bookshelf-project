@@ -221,7 +221,7 @@ export async function markupModal(bookId) {
       </li>
     </ul>
     <button class="add-book-button js-btn-add" type="submit" data-id=${_id} style="${addBookButtonStyle}">add to shopping list</button>
-    <span class="message-nolog" style="${messagenolog}">If you want to add book, please <a class="modal-sign-up" id="sign-up" href="#">
+    <span class="message-nolog" style="${messagenolog}">If you want to add book, please <a class="modal-sign-up sign-up-butt" href="#">
             Sign up
           </a></span>
     <p class="under-remove-btn-text text-hidden">Congratulations! You have added the book to the shopping list. To delete, press the button "Remove from the shopping list".</p>
