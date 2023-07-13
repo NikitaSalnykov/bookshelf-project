@@ -1,4 +1,5 @@
 const checkBoxTheme = document.querySelector('#theme-switch');
+const checkBoxThemeMobile = document.querySelector('#theme-switch-menu')
 const body = document.querySelector('body');
 
 const KEY_STORE = 'colorThemeChanger';
@@ -41,6 +42,7 @@ function pageStoredOnReboot() {
 
   if (storedValue === 'dark-theme') {
     checkBoxTheme.setAttribute('checked', true);
+    checkBoxThemeMobile.setAttribute('checked', true);
   }
 }
 pageStoredOnReboot();
