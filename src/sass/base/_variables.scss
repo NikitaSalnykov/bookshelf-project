@@ -1,6 +1,6 @@
 :root {
-  --main-text-color-dark-theme: #202024;
-  --main-text-color-light-theme: #F6F6F6;
+  --main-text-color-dark-theme: #111111;
+  --main-text-color-light-theme: #ffffff;
   --secondary-text-color: #b4afaf;
 
   --brand-color: #4f2ee8;
@@ -22,51 +22,28 @@
   --hover-light-theme: #4f2ee8;
   --hover-dark-theme: #eac645;
 
-  // --gradient: radial-gradient(
-  //   183.6% 183.01% at 59.76% -23.42%,
-  //   #4f2ee8 18.03%,
-  //   #ffffff 100%
-  // );
-  // --shadow: 0px 10px 10px rgba(245, 245, 247, 0.1);
-  // --icons-shadow: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.15));
+  --gradient: radial-gradient(
+    183.6% 183.01% at 59.76% -23.42%,
+    #4f2ee8 18.03%,
+    #ffffff 100%
+  );
+  --shadow: 0px 10px 10px rgba(245, 245, 247, 0.1);
+  --icons-shadow: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.15));
 
-  // // breakpoints
-  // --phoneMax: 374.9px;
-  // --phoneMin: 375px;
+  // breakpoints
+  --phoneMax: 374.9px;
+  --phoneMin: 375px;
 
-  // --tabletMax: 1023.9px;
-  // --tabletMin: 768px;
+  --tabletMax: 1023.9px;
+  --tabletMin: 768px;
 
-  // --desktopMax: 1440px;
-  // --desktopMin: 1024px;
+  --desktopMax: 1440px;
+  --desktopMin: 1024px;
 
-  // // padding-container
-  // --paddingPhone: 20px;
-  // --paddingTablet: 32px;
-  // --paddingDt: 24px;
+  // padding-container
+  --paddingPhone: 20px;
+  --paddingTablet: 32px;
+  --paddingDt: 24px;
 
   --transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-
-$gradient: radial-gradient(
-  183.6% 183.01% at 59.76% -23.42%,
-  #4f2ee8 18.03%,
-  #ffffff 100%
-);
-$shadow: 0px 10px 10px rgba(245, 245, 247, 0.1);
-$icons-shadow: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.15));
-
-// breakpoints
-$phoneMax: 374.9px;
-$phoneMin: 375px;
-
-$tabletMax: 1023.9px;
-$tabletMin: 768px;
-
-$desktopMax: 1440px;
-$desktopMin: 1024px;
-
-// padding-container
-$paddingPhone: 20px;
-$paddingTablet: 32px;
-$paddingDt: 24px;

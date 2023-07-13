@@ -17,15 +17,16 @@ button {
   display: flex;
   align-items: flex-start;
   padding-bottom: 40px;
-  @media (min-width: $tabletMin) {
+  @media (min-width: var(--tabletMin)) {
     margin-top: 0;
   }
 }
 
 .shop-aside {
+  margin-top: 112px;
   display: none;
 
-  @media (min-width: $desktopMax) {
+  @media (min-width: var(--desktopMin)) {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -35,16 +36,8 @@ button {
 
 .shopping-list {
   width: 100%;
+  margin-left: 40px;
 }
-
- @media (min-width: 1440px)  {
-.shopping-list {
-    margin-left: 40px;
-  }
- }
-
-
-
 .shopping-list__title {
   font-family: 'DM Sans';
   font-weight: 700;
@@ -52,9 +45,9 @@ button {
   line-height: 1.19;
   letter-spacing: -0.04em;
 
-  // color: var(--black-color);
+  color: var(--black-color);
 
-  @media (min-width: $tabletMin) {
+  @media (min-width: var(--tabletMin)) {
     font-size: 48px;
     line-height: 1.08;
   }
@@ -66,11 +59,10 @@ button {
 .cart {
   &__pagination {
     margin-top: 20px;
-    @media (min-width: $tabletMin) {
+    @media (min-width: var(--tabletMin)) {
       margin-top: 40px;
     }
   }
-
 
   &__list {
     display: flex;
@@ -79,10 +71,13 @@ button {
     gap: 20px;
     margin-top: 40px;
     width: 100%;
-    @media (min-width: $tabletMin) {
+    @media (min-width: var(--tabletMin)) {
       height: 679px;
     }
   }
+
+  // &__item {
+  // }
 }
 .cart-empty {
   display: flex;
@@ -91,11 +86,12 @@ button {
   justify-content: center;
   gap: 14px;
   max-width: 265px;
+  // height: auto;
   margin-top: 120px;
   margin-left: auto;
   margin-right: auto;
 
-  @media (min-width: $tabletMin) {
+  @media (min-width: var(--tabletMin)) {
     max-width: 349px;
   }
 
@@ -112,9 +108,9 @@ button {
     line-height: 1.29;
     letter-spacing: -0.02em;
 
-    // color: rgba(0, 0, 0, 0.6);
+    color: rgba(0, 0, 0, 0.6);
 
-    @media (min-width: $tabletMin) {
+    @media (min-width: var(--tabletMin)) {
       padding: 0;
       width: 349px;
 
@@ -129,7 +125,7 @@ button {
   }
 }
 .card {
-  // overflow: hidden;
+  overflow: hidden;
   position: relative;
   display: flex;
   gap: 14px;
@@ -139,11 +135,7 @@ button {
   border: 2px solid rgba(79, 46, 232, 0.4);
   border-radius: 16px;
 
-      &:hover {
-          cursor: pointer;
-        }
-
-  @media (min-width: $tabletMin) {
+  @media (min-width: var(--tabletMin)) {
     gap: 24px;
     padding: 24px;
   }
@@ -155,7 +147,7 @@ button {
     object-fit: cover;
 
     border-radius: 8px;
-    @media (min-width: $tabletMin) {
+    @media (min-width: var(--tabletMin)) {
       min-width: 116px;
       height: 165px;
     }
@@ -182,11 +174,12 @@ button {
     white-space: nowrap;
     text-overflow: ellipsis;
 
+    color: var(--black-color);
 
-    @media (min-width: $tabletMin) {
+    @media (min-width: var(--tabletMin)) {
       max-width: 460px;
     }
-    @media (min-width: $desktopMin) {
+    @media (min-width: var(--desktopMin)) {
       max-width: 745px;
     }
   }
@@ -207,10 +200,10 @@ button {
 
     color: var(--secondary-text-color);
 
-    @media (min-width: $tabletMin) {
+    @media (min-width: var(--tabletMin)) {
       max-width: 460px;
     }
-    @media (min-width: $desktopMin) {
+    @media (min-width: var(--desktopMin)) {
       max-width: 745px;
     }
   }
@@ -234,14 +227,15 @@ button {
 
     text-overflow: ellipsis;
 
-    @media (min-width: $tabletMin) {
+    color: var(--black-color);
+    @media (min-width: var(--tabletMin)) {
       // width: 100%;
 
       margin-top: 14px;
       max-width: none;
       max-height: 68px;
     }
-    @media (min-width: $desktopMin) {
+    @media (min-width: var(--desktopMin)) {
       // width: 100%;
       // max-width: 808px;
     }
@@ -254,7 +248,7 @@ button {
     align-items: flex-end;
     margin-top: 14px;
     // width: 100%;
-    @media (min-width: $tabletMin) {
+    @media (min-width: var(--tabletMin)) {
       margin-top: 32px;
     }
   }
@@ -280,7 +274,7 @@ button {
     gap: 8px;
 
     filter: grayscale(1);
-    @media (min-width: $tabletMin) {
+    @media (min-width: var(--tabletMin)) {
       gap: 16px;
     }
   }
@@ -298,16 +292,19 @@ button {
     height: 28px;
     padding: 6px;
     border-radius: 50%;
-    stroke: var(--white-color);
+
     background-color: var(--brand-color);
     border: none;
-    fill: transparent;
+    fill: #ffffff;
 
     cursor: pointer;
 
-    transition: background-color 100ms var(--transition), stroke 100ms var(--transition);;
+    transition-property: fill;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition: background-color 500ms var(--transition);
 
-    @media (min-width: $tabletMin) {
+    @media (min-width: var(--tabletMin)) {
       padding: 8px;
       top: 24px;
       right: 24px;
@@ -317,7 +314,7 @@ button {
 
     &:hover {
       background-color: var(--hover-dark-theme);
-      stroke: var(--black-color);
+      fill: var(--black-color);
     }
   }
 }
@@ -333,7 +330,7 @@ button {
       filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.15));
     }
 
-    @media (min-width: $tabletMin) {
+    @media (min-width: var(--tabletMin)) {
       width: 48px;
       height: 15px;
     }
@@ -346,7 +343,7 @@ button {
       mix-blend-mode: luminosity;
       filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.15));
     }
-    @media (min-width: $tabletMin) {
+    @media (min-width: var(--tabletMin)) {
       width: 28px;
       height: 27px;
     }
@@ -361,7 +358,7 @@ button {
       mix-blend-mode: luminosity;
       filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.15));
     }
-    @media (min-width: $tabletMin) {
+    @media (min-width: var(--tabletMin)) {
       width: 32px;
       height: 30px;
     }
