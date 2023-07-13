@@ -1,0 +1,50 @@
+<div class="modal" id="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+
+            <button class="modal-close" id="modal-close">&#10005;</button>
+        </div>
+        <form id="sign-in-form" class="sign-form">
+            <div class="form-field">
+                <input type="email" id="signin-email" class="intput-sign" placeholder="Email" required>
+                <svg width="24" height="18" class="svg-icon">
+                    <use href="./images/symbol-defs.svg#icon-mail"></use>
+                </svg>
+            </div>
+            <div class="form-field">
+                <input type="password" id="signin-password" class="intput-sign" placeholder="Password" required>
+                <svg width="24" height="18" class="svg-icon">
+                    <use href="./images/symbol-defs.svg#icon-lock"></use>
+                </svg>
+            </div>
+            <div class="form-field button-field">
+                <button type="submit" class="sign-button">Sign In</button>
+            </div>
+        </form>
+        <form id="sign-up-form" class="sign-form" style="display: none;">
+            <div class="form-field">
+                <input type="text" id="signup-name" class="intput-sign" placeholder="Name" required>
+            </div>
+            <div class="form-field">
+                <input type="email" id="signup-email" class="intput-sign" placeholder="Email" required>
+                <svg width="24" height="18" class="svg-icon">
+                    <use href="./images/symbol-defs.svg#icon-mail"></use>
+                </svg>
+            </div>
+            <div class="form-field">
+                <input type="password" id="signup-password" class="intput-sign" placeholder="Password" required
+                    minlength="6">
+                <svg width="24" height="18" class="svg-icon">
+                    <use href="./images/symbol-defs.svg#icon-lock"></use>
+                </svg>
+            </div class="form-field">
+            <div class="form-field button-field">
+                <button type="submit" class="sign-button">Sign Up</button>
+            </div>
+        </form>
+        <div class="form-switch">
+            <span id="switch-signup" class="span-switch active">Sign Up</span>
+            <span id="switch-signin" class="span-switch">Sign In</span>
+        </div>
+    </div>
+</div>

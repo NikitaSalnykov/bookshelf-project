@@ -1,0 +1,39 @@
+footer {
+	height: 220px;
+	width: 1440px;
+	margin: auto;
+	position: relative;
+	overflow: hidden;
+}
+
+footer div	{
+	background-color: #fff;
+	display: inline-block;
+	position: absolute;
+	border: 3px solid #000;
+	border-radius: 10px;
+	margin: auto;
+	width: 64px;
+	height: 64px;
+	overflow: hidden;
+	transition: all ease 1s;
+	opacity: 1;
+	transform: translate(0, 10%);
+}
+footer div p {
+	text-align: center;
+	font-size: 1.3em;
+	font-weight: 700;
+}
+@media all and (max-width: 1440px){
+		footer {
+		width: 768px;
+		overflow: hidden;
+	}
+}
+@media all and (max-width: 768px){
+	footer {
+	width: 375px;
+	overflow: hidden;
+}
+}
