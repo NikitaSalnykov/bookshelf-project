@@ -17,7 +17,17 @@ function onClick(event) {
     if (button.textContent=== `remove from the shopping list`) {
         dataBase.firebaseRemoveBookFromList(getUserId(), bookId);
         button.textContent = `Add to shopping list`;
-        successText.classList.add('text-hidden')
+      successText.classList.add('text-hidden')
+              dataBase.firebaseAddBookToList(getUserId(), bookId)
+      dataBase.onAuthStateChanged(function (user) {
+          const userId = user.uid;
+        dataBase.firebaseSelectBooksFromList(userId).then(function (result) {
+          if (document.querySelector('.red-dot') && result === false) {
+            document.querySelector('.red-dot').remove()
+          
+          }
+        })
+      })
         return;
     }
     dataBase.firebaseAddBookToList(getUserId(), bookId)
@@ -26,11 +36,19 @@ function onClick(event) {
         const userId = user.uid;
         dataBase.firebaseSelectBooksFromList(userId).then(function (result) {
           const a = document.querySelector('.nav-link-shopping')
-          if (result.length >= 0) {
+          if (result.length > 0) {
             a.classList.add("animate__animated", "animate__headShake", "animate__slow");
             setTimeout(() => {
                a.classList.remove("animate__animated", "animate__headShake", "animate__slow")
             }, 1000);
+            let beforeElement = document.createElement('span');
+            if (document.querySelector('.red-dot')) {
+              document.querySelector('.red-dot').remove()
+            } 
+            beforeElement.classList.add('red-dot');
+            a.prepend(beforeElement);  
+          } else {
+            document.querySelector('.red-dot').remove()
           }
           if (result===false) {
               return;
