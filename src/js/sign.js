@@ -3,7 +3,7 @@ import { save } from './storage.js';
 const firebaseInstance = new Firebase();
 const modal = document.getElementById('modal');
 const modalCloseBtn = document.getElementById('modal-close');
-const signUpButton = document.getElementById('sign-up');
+const signUpButton = document.querySelector('.sign-up-butt');
 const signInForm = document.getElementById('sign-in-form');
 const signUpForm = document.getElementById('sign-up-form');
 const switchSignup = document.getElementById('switch-signup');
@@ -11,7 +11,7 @@ const switchSignin = document.getElementById('switch-signin');
 
 // Відкриття модального вікна з формою "Sign Up" відображеною за замовчуванням
 document.addEventListener('click', function(event) {
-  if (event.target.id === 'sign-up') {
+  if (event.target.classList.contains('sign-up-butt')) {
     event.preventDefault();
     modal.style.display = 'block';
     signUpForm.style.display = 'block';
