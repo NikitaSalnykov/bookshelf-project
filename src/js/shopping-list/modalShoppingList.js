@@ -26,8 +26,6 @@ function closeModal() {
       firebaseInstance.firebaseSelectBooksFromList(userId).then(async function (result) {
           // console.log('id', userId);
             if (result !== false) {
-              console.log('Список книжок з корзини:', result);
-              
               const a = markupFullCard(result)
               Promise.all(a).then(markup => {
                 cartListEl.innerHTML = markup.join('')
@@ -90,7 +88,6 @@ async function onBook(e) {
       firebaseInstance.firebaseSelectBooksFromList(userId).then(async function (result) {
           // console.log('id', userId);
             if (result !== false) {
-              console.log('Список книжок з корзини:', result);
               
               const a = markupFullCard(result)
               Promise.all(a).then(markup => {

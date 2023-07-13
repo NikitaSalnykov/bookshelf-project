@@ -33,8 +33,7 @@ firebaseInstance.onAuthStateChanged(function (user) {
         const userId = user.uid;
       firebaseInstance.firebaseSelectBooksFromList(userId).then(async function (result) {
             if (result !== false) {
-              console.log('Список книжок з корзини:', result);
-              
+
               const a = markupFullCard(result)
               Promise.all(a).then(markup => {
                 cartListEl.innerHTML = markup.join('')
