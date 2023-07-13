@@ -13,6 +13,7 @@ function onClick(event) {
     const bookId = button.dataset.id;
     const successText = document.querySelector('.under-remove-btn-text')
     
+    
     if (button.textContent=== `remove from the shopping list`) {
         dataBase.firebaseRemoveBookFromList(getUserId(), bookId);
         button.textContent = `Add to shopping list`;
@@ -23,7 +24,14 @@ function onClick(event) {
      dataBase.onAuthStateChanged(function (user) {
       if (user) {
         const userId = user.uid;
-          dataBase.firebaseSelectBooksFromList(userId).then(function (result) {
+        dataBase.firebaseSelectBooksFromList(userId).then(function (result) {
+          const a = document.querySelector('.nav-link-shopping')
+          if (result.length >= 0) {
+            a.classList.add("animate__animated", "animate__headShake", "animate__slow");
+            setTimeout(() => {
+               a.classList.remove("animate__animated", "animate__headShake", "animate__slow")
+            }, 1000);
+          }
           if (result===false) {
               return;
           } else if(result.includes(bookId)) {

@@ -136,3 +136,13 @@ background-color: var(--black-color);
         transform: rotateY(-180deg);
     }
 }
+
+.red-dot{
+    content: '';
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background-color: red;
+    border-radius: 50%;
+    margin-right: 5px;
+}
