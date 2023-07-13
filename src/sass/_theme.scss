@@ -139,10 +139,14 @@ background-color: var(--black-color);
 
 .red-dot{
     content: '';
-    display: inline-block;
-    width: 8px;
-    height: 8px;
+    display: flex;
+    width: 16px;
+    height: 16px;
     background-color: red;
     border-radius: 50%;
     margin-right: 5px;
+    justify-content: center;
+    align-items: center;
+    font-size: 8px;
+    color: white;
 }

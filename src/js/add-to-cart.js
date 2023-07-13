@@ -16,7 +16,8 @@ function onClick(event) {
     
     if (button.textContent=== `remove from the shopping list`) {
         dataBase.firebaseRemoveBookFromList(getUserId(), bookId);
-        button.textContent = `Add to shopping list`;
+      button.textContent = `Add to shopping list`;
+
       successText.classList.add('text-hidden')
               dataBase.firebaseAddBookToList(getUserId(), bookId)
       dataBase.onAuthStateChanged(function (user) {
@@ -24,7 +25,8 @@ function onClick(event) {
         dataBase.firebaseSelectBooksFromList(userId).then(function (result) {
           if (document.querySelector('.red-dot') && result === false) {
             document.querySelector('.red-dot').remove()
-          
+          } else {
+                  document.querySelector('.red-dot').textContent = result.length
           }
         })
       })
@@ -46,6 +48,7 @@ function onClick(event) {
               document.querySelector('.red-dot').remove()
             } 
             beforeElement.classList.add('red-dot');
+            beforeElement.textContent = result.length
             a.prepend(beforeElement);  
           } else {
             document.querySelector('.red-dot').remove()
